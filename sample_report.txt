@@ -1,0 +1,14 @@
+Hospital ABC Medical Center
+
+Patient Name: John Doe
+Patient ID: P-998877
+DOB: 05/12/1975
+Report Date: 08/09/2025
+
+Vitals:
+Blood Pressure: 120/80 mmHg
+Heart Rate: 70 bpm
+SpO2: 97%
+Temperature: 98.6 F
+Respiratory Rate: 18 /min
+Glucose: 6.0 mmol/L
