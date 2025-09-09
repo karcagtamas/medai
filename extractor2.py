@@ -67,23 +67,23 @@ FIELDS = list(SYNTHETIC_REPORTS[0]["labels"].keys())
 
 class MedReportExtractor(nn.Module):
 
-    def __init__(self, base_model="distilbert-base-uncased", num_fields=10):
+    def __init__(self, base_model="distilbert-base-uncased"):
         super().__init__()
 
         self.encoder = AutoModel.from_pretrained(base_model)
         hidden_size = self.encoder.config.hidden_size
 
         self.field_heads = nn.ModuleDict({
-            "name": nn.Linear(hidden_size, 256),       # predict span embedding
-            "patient_id": nn.Linear(hidden_size, 128),
-            "date_of_birth": nn.Linear(hidden_size, 64),
-            "report_date": nn.Linear(hidden_size, 64),
-            "blood_pressure_systolic": nn.Linear(hidden_size, 32),
-            "blood_pressure_diastolic": nn.Linear(hidden_size, 32),
-            "spo2": nn.Linear(hidden_size, 32),
-            "heart_rate": nn.Linear(hidden_size, 32),
-            "temperature_c": nn.Linear(hidden_size, 32),
-            "glucose_mgdl": nn.Linear(hidden_size, 32),
+            "name": nn.Linear(hidden_size, hidden_size),       # predict span embedding
+            "patient_id": nn.Linear(hidden_size, hidden_size),
+            "date_of_birth": nn.Linear(hidden_size, hidden_size),
+            "report_date": nn.Linear(hidden_size, hidden_size),
+            "blood_pressure_systolic": nn.Linear(hidden_size, hidden_size),
+            "blood_pressure_diastolic": nn.Linear(hidden_size, hidden_size),
+            "spo2": nn.Linear(hidden_size, hidden_size),
+            "heart_rate": nn.Linear(hidden_size, hidden_size),
+            "temperature_c": nn.Linear(hidden_size, hidden_size),
+            "glucose_mgdl": nn.Linear(hidden_size, hidden_size),
         })
 
         self.pooler = nn.AdaptiveAvgPool1d(1)
@@ -114,7 +114,7 @@ class MedDataset(Dataset):
         labels = ex["labels"]
 
         return {
-            "inputs_ids": enc["input_ids"].squeeze(),
+            "input_ids": enc["input_ids"].squeeze(),
             "attention_mask": enc["attention_mask"].squeeze(),
             "labels": labels
         }
@@ -123,7 +123,7 @@ def constrative_loss(model, pred_vecs, labels, tokenizer, device):
     total_loss = 0.0
     for field, pred in pred_vecs.items():
         label_text = labels[field]
-        enc = tokenizer(label_text, return_tensors="pt").to(device)
+        enc = tokenizer(label_text, return_tensors="pt", padding="max_length", truncation=True, max_length=32).to(device)
         with torch.no_grad():
             gold_emb = model.encoder(**enc).last_hidden_state.mean(dim=1)
 
