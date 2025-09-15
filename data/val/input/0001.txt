@@ -1,0 +1,8 @@
+Patient Name: Anna Green
+Patient ID: T-200
+DOB: 1980-01-01
+BP: 118/76 mmHg
+Pulse: 72 bpm
+O₂ Sat: 96%
+Temp: 37.2 C
+Doctor: Dr. Brown

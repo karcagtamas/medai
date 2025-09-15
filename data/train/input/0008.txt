@@ -1,0 +1,6 @@
+Report for Fiona Davis
+Patient #: P-1005
+Birthdate: 05/11/1982
+BP: 128/80
+Heart Rate: 78 bpm
+Allergies: Penicillin

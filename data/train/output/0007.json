@@ -1,0 +1,9 @@
+{
+    "name": "Ethan Clark",
+    "patient_id": "P-1004",
+    "date_of_birth": "12/25/1978",
+    "blood_pressure_systolic": "115",
+    "blood_pressure_diastolic": "75",
+    "spo2": "98",
+    "temperature": "37.0"
+}

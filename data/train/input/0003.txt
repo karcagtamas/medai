@@ -1,0 +1,7 @@
+Hospital Report
+Patient Name: Alice Smith
+Patient ID: P-1000
+DOB: 01/02/1980
+BP: 118/76
+SpO₂: 96%
+Temp: 37.2 C

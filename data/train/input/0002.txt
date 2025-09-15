@@ -1,0 +1,8 @@
+General Hospital
+Patient Name: Bob Johnson
+Patient ID: B-445566
+DOB: 07/22/1975
+Blood Pressure: 125/82 mmHg
+Heart Rate: 80 bpm
+Oxygen Saturation: 94%
+Temperature: 98.6 F

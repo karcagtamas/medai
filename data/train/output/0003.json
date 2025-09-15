@@ -1,0 +1,9 @@
+{
+    "name": "Alice Smith",
+    "patient_id": "P-1000",
+    "date_of_birth": "01/02/1980",
+    "blood_pressure_systolic": "118",
+    "blood_pressure_diastolic": "76",
+    "spo2": "96",
+    "temperature": "37.2"
+}

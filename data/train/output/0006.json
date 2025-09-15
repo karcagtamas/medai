@@ -1,0 +1,8 @@
+{
+    "name": "Diana Ross",
+    "patient_id": "P-1003",
+    "date_of_birth": "09/09/1985",
+    "blood_pressure_systolic": "130",
+    "blood_pressure_diastolic": "85",
+    "heart_rate": "85"
+}

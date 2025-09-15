@@ -1,0 +1,10 @@
+{
+    "name": "Bob Johnson",
+    "patient_id": "B-445566",
+    "date_of_birth": "07/22/1975",
+    "blood_pressure_systolic": "125",
+    "blood_pressure_diastolic": "82",
+    "heart_rate": "80",
+    "spo2": "94",
+    "temperature_f": "98.6"
+}

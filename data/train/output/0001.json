@@ -1,0 +1,10 @@
+{
+    "name": "Alice Smith",
+    "patient_id": "A-112233",
+    "date_of_birth": "12/03/1980",
+    "blood_pressure_systolic": "118",
+    "blood_pressure_diastolic": "76",
+    "heart_rate": "72",
+    "spo2": "96",
+    "temperature_c": "37.2"
+}

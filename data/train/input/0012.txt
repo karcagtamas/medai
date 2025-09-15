@@ -1,0 +1,6 @@
+Medical File
+Patient ID: P-1009
+Full Name: Julia King
+DOB: 06/21/1981
+BP: 124/81
+Pulse: 79

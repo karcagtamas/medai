@@ -1,0 +1,8 @@
+{
+    "name": "Bob Johnson",
+    "patient_id": "P-1001",
+    "date_of_birth": "07/22/1975",
+    "blood_pressure_systolic": "125",
+    "blood_pressure_diastolic": "82",
+    "heart_rate": "80"
+}

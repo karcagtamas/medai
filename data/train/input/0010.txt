@@ -1,0 +1,6 @@
+Report Sheet
+Patient Name: Hannah Lee
+Patient ID: P-1007
+DOB: 04/19/1992
+Blood Pressure: 110/70 mmHg
+Doctor: Dr. Taylor

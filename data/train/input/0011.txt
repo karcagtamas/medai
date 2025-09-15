@@ -1,0 +1,6 @@
+Hospital Note
+PID: P-1008
+Patient: Ian Moore
+DOB: 10/07/1988
+SpO₂: 97%
+Temp: 37.4

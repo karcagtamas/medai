@@ -1,0 +1,8 @@
+Hospital XYZ
+Patient Name: Alice Smith
+Patient ID: A-112233
+DOB: 12/03/1980
+BP: 118/76 mmHg
+HR: 72 bpm
+SpO2: 96%
+Temp: 37.2 C

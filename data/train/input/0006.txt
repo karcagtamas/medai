@@ -1,0 +1,6 @@
+Clinical Note
+Patient ID: P-1003
+Patient Name: Diana Ross
+DOB: 09/09/1985
+Blood Pressure: 130/85
+HR: 85

@@ -2,3 +2,5 @@ transformers
 torch
 pdfplumber
 python-docx
+tqdm
+pandas

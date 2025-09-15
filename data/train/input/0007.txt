@@ -1,0 +1,8 @@
+Hospital Report
+Name: Ethan Clark
+ID: P-1004
+DOB: 12/25/1978
+Blood Pressure: 115/75 mmHg
+Oxygen Saturation: 98%
+Temp: 37.0 C
+Note: Stable condition

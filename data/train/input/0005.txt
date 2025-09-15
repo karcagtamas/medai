@@ -1,0 +1,6 @@
+Patient Report
+Name: Charlie Adams
+PID: P-1002
+DOB: 03/14/1990
+O2 Sat: 97%
+Pulse: 76 bpm

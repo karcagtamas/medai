@@ -1,0 +1,7 @@
+Medical Summary
+ID: P-1001
+Patient: Bob Johnson
+Date of Birth: 07/22/1975
+Blood Pressure: 125/82 mmHg
+Heart Rate: 80 bpm
+Doctor: Dr. Jones

@@ -1,0 +1,6 @@
+Summary Record
+Patient: George Hill
+ID: P-1006
+DOB: 08/30/1973
+HR: 82 bpm
+Temp: 36.7 C
