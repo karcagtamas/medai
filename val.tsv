@@ -1,0 +1,64 @@
+input_text	target_text
+"Patient Name: Anna Green
+Patient ID: V-100
+DOB: 1980-01-01
+BP: 118/76 mmHg
+Pulse: 72 bpm
+O₂ Sat: 96%
+Temp: 37.2 C"	"{""name"": ""Anna Green"", ""date_of_birth"": ""1980-01-01"", ""blood_pressure_systolic"": ""118"", ""blood_pressure_diastolic"": ""76"", ""heart_rate"": ""72"", ""spo2"": ""96"", ""temperature"": ""37.2""}"
+"Patient Name: Brian Lee
+Patient ID: V-101
+DOB: 1975-05-22
+BP: 125/82 mmHg
+Pulse: 80 bpm
+O₂ Sat: 94%
+Temp: 98.6 F
+Doctor: Dr. Brown"	"{""name"": ""Brian Lee"", ""patient_id"": ""V-101"", ""date_of_birth"": ""1975-05-22"", ""blood_pressure_systolic"": ""125"", ""blood_pressure_diastolic"": ""82"", ""heart_rate"": ""80"", ""spo2"": ""94"", ""temperature"": ""98.6""}"
+"Patient Name: Catherine Hall
+Patient ID: V-102
+DOB: 1990-03-14
+BP: 122/78 mmHg
+Pulse: 76 bpm
+O₂ Sat: 97%
+Temp: 36.8 C"	"{""name"": ""Catherine Hall"", ""patient_id"": ""V-102"", ""date_of_birth"": ""1990-03-14"", ""blood_pressure_systolic"": ""122"", ""blood_pressure_diastolic"": ""78"", ""heart_rate"": ""76"", ""spo2"": ""97"", ""temperature"": ""36.8""}"
+"Patient Name: Daniel Young
+Patient ID: V-103
+DOB: 1985-09-09
+Pulse: 85 bpm
+O₂ Sat: 95%"	"{""patient_id"": ""V-103"", ""date_of_birth"": ""1985-09-09"", ""blood_pressure_systolic"": ""130"", ""heart_rate"": ""85"", ""spo2"": ""95""}"
+"Patient Name: Emily Stone
+Patient ID: V-104
+DOB: 1978-12-25
+O₂ Sat: 98%
+Temp: 37.0 C"	"{""name"": ""Emily Stone"", ""patient_id"": ""V-104"", ""date_of_birth"": ""1978-12-25"", ""spo2"": ""98"", ""temperature"": ""37.0""}"
+"Patient Name: Frank Moore
+Patient ID: V-105
+DOB: 1982-05-11
+BP: 128/80 mmHg
+Pulse: 78 bpm
+Doctor: Dr. Brown"	"{""name"": ""Frank Moore"", ""patient_id"": ""V-105"", ""date_of_birth"": ""1982-05-11"", ""blood_pressure_systolic"": ""128"", ""blood_pressure_diastolic"": ""80"", ""heart_rate"": ""78""}"
+"Patient Name: Grace White
+Patient ID: V-106
+DOB: 1973-08-30
+Pulse: 82 bpm
+O₂ Sat: 92%"	"{""name"": ""Grace White"", ""patient_id"": ""V-106"", ""date_of_birth"": ""1973-08-30"", ""blood_pressure_diastolic"": ""88"", ""heart_rate"": ""82"", ""spo2"": ""92""}"
+"Patient Name: Henry Black
+Patient ID: V-107
+DOB: 1992-04-19
+BP: 110/70 mmHg
+Pulse: 68 bpm
+O₂ Sat: 99%
+Temp: 97.9 F"	"{""name"": ""Henry Black"", ""patient_id"": ""V-107"", ""date_of_birth"": ""1992-04-19"", ""blood_pressure_systolic"": ""110"", ""blood_pressure_diastolic"": ""70"", ""heart_rate"": ""68"", ""spo2"": ""99"", ""temperature"": ""97.9""}"
+"Patient Name: Isabel King
+Patient ID: V-108
+DOB: 1988-10-07
+O₂ Sat: 97%
+Temp: 37.4 C"	"{""patient_id"": ""V-108"", ""date_of_birth"": ""1988-10-07"", ""blood_pressure_systolic"": ""120"", ""spo2"": ""97"", ""temperature"": ""37.4""}"
+"Patient Name: Jack Wright
+Patient ID: V-109
+DOB: 1981-06-21
+BP: 124/81 mmHg
+Pulse: 79 bpm
+O₂ Sat: 95%
+Temp: 98.2 F
+Doctor: Dr. Brown"	"{""name"": ""Jack Wright"", ""patient_id"": ""V-109"", ""date_of_birth"": ""1981-06-21"", ""blood_pressure_systolic"": ""124"", ""blood_pressure_diastolic"": ""81"", ""heart_rate"": ""79"", ""spo2"": ""95"", ""temperature"": ""98.2""}"
