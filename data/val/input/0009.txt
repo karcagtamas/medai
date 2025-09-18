@@ -1,0 +1,7 @@
+Patient Name: Henry Black
+Patient ID: V-107
+DOB: 1992-04-19
+BP: 110/70 mmHg
+Pulse: 68 bpm
+O₂ Sat: 99%
+Temp: 97.9 F

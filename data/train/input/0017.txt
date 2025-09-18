@@ -1,0 +1,8 @@
+Patient Name: Emily Stone
+Patient ID: T-204
+DOB: 1978-12-25
+BP: 115/75 mmHg
+Pulse: 70 bpm
+O₂ Sat: 98%
+Temp: 37.0 C
+Doctor: Dr. Patel

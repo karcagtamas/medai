@@ -1,0 +1,7 @@
+Patient Name: Daniel Young
+Patient ID: T-203
+DOB: 1985-09-09
+BP: 130/85 mmHg
+Pulse: 85 bpm
+O₂ Sat: 95%
+Temp: 99.1 F

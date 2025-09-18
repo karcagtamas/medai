@@ -1,0 +1,10 @@
+{
+    "name": "Catherine Hall",
+    "patient_id": "V-102",
+    "date_of_birth": "1990-03-14",
+    "blood_pressure_systolic": "122",
+    "blood_pressure_diastolic": "78",
+    "heart_rate": "76",
+    "spo2": "97",
+    "temperature": "36.8"
+}

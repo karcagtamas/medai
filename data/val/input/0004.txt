@@ -1,0 +1,7 @@
+Patient Name: Catherine Hall
+Patient ID: V-102
+DOB: 1990-03-14
+BP: 122/78 mmHg
+Pulse: 76 bpm
+O₂ Sat: 97%
+Temp: 36.8 C

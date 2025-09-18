@@ -1,0 +1,8 @@
+Patient Name: Brian Lee
+Patient ID: V-101
+DOB: 1975-05-22
+BP: 125/82 mmHg
+Pulse: 80 bpm
+O₂ Sat: 94%
+Temp: 98.6 F
+Doctor: Dr. Brown

@@ -1,0 +1,8 @@
+{
+    "name": "Frank Moore",
+    "patient_id": "T-205",
+    "blood_pressure_diastolic": "80",
+    "heart_rate": "78",
+    "spo2": "93",
+    "temperature": "100.2"
+}

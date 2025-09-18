@@ -1,0 +1,7 @@
+Patient Name: Jack Wright
+Patient ID: T-209
+DOB: 1981-06-21
+BP: 124/81 mmHg
+Pulse: 79 bpm
+O₂ Sat: 95%
+Temp: 98.2 F

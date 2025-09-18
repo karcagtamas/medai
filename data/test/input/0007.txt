@@ -1,0 +1,8 @@
+Patient Name: Henry Black
+Patient ID: T-207
+DOB: 1992-04-19
+BP: 110/70 mmHg
+Pulse: 68 bpm
+O₂ Sat: 99%
+Temp: 97.9 F
+Doctor: Dr. Smith

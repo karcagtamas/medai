@@ -1,0 +1,8 @@
+{
+    "patient_id": "T-203",
+    "date_of_birth": "1985-09-09",
+    "blood_pressure_systolic": "130",
+    "blood_pressure_diastolic": "85",
+    "spo2": "95",
+    "temperature": "99.1"
+}

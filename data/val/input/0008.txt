@@ -1,0 +1,5 @@
+Patient Name: Grace White
+Patient ID: V-106
+DOB: 1973-08-30
+Pulse: 82 bpm
+O₂ Sat: 92%

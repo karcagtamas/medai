@@ -8,6 +8,16 @@ from torch.optim import AdamW
 from tqdm import tqdm
 
 
+def safe_json_parse(text: str):
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        try:
+            return json.loads("{" + text.strip().strip(",") + "}")
+        except Exception:
+            return {"_raw": text}
+
+
 class MedDataset(Dataset):
     def __init__(self, samples, tokenizer, max_input_len=512, max_target_len=256):
         self.samples = samples
@@ -36,10 +46,13 @@ class MedDataset(Dataset):
             return_tensors="pt"
         )
 
+        labels = target_enc["input_ids"].squeeze()
+        labels[labels == self.tokenizer.pad_token_id] = -100
+
         return {
             "input_ids": input_enc["input_ids"].squeeze(),
             "attention_mask": input_enc["attention_mask"].squeeze(),
-            "labels": target_enc["input_ids"].squeeze()
+            "labels": labels
         }
 
 
@@ -49,21 +62,23 @@ def load_dataset(folder_name: str, tokenizer) -> MedDataset:
 
     samples = []
     for file_name in os.listdir(input_folder):
-        file_path = os.path.join(input_folder, file_name)
-        if os.path.isfile(file_path):
+        input_file_path = os.path.join(input_folder, file_name)
+        output_file_path = os.path.join(output_folder, file_name)
+        if os.path.isfile(input_file_path):
             item = {}
-            with open(file_path, 'r') as file:
+            with open(input_file_path, 'r') as file:
                 item["input"] = file.read()
 
-            with open(file_path.replace(".txt", ".json")) as file:
-                item["output"] = json.dumps(json.load(file))
+            with open(output_file_path.replace(".txt", ".json")) as file:
+                data = json.load(file)
+                item["output"] = json.dumps(data, ensure_ascii=False)
 
             samples.append(item)
 
     return MedDataset(samples, tokenizer)
 
 
-def train(model, train_dataloader, val_dataloader, optimizer, loss_fn, device, epochs=5):
+def train(model, train_dataloader, val_dataloader, optimizer, device, epochs=5):
     model.to(device)
 
     for epoch in range(epochs):
@@ -114,15 +129,38 @@ def train(model, train_dataloader, val_dataloader, optimizer, loss_fn, device, e
         print(f"Epoch {epoch + 1} | Train loss: {avg_train_loss:.4f} | Val loss {avg_val_loss:.4f}")
 
 
-def predict(text, model, tokenizer, device):
+def predict(model, test_loader, tokenizer, device, max_len=512):
     model.eval()
-    inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True).to(device)
-    outputs = model.generate(**inputs, max_length=256)
-    decoded = tokenizer.decode(outputs[0], skip_special_tokens=True)
-    try:
-        return json.loads(decoded)
-    except:
-        return decoded
+    preds = []
+
+    with torch.no_grad():
+        for batch in tqdm(test_loader, desc="Testing"):
+            input_ids = batch["input_ids"].to(device)
+            attention_mask = batch["attention_mask"].to(device)
+
+            outputs = model.generate(
+                input_ids=input_ids,
+                attention_mask=attention_mask,
+                max_length=max_len,
+                num_beams=4,
+                early_stopping=True
+            )
+
+            for i in range(len(input_ids)):
+                input_text = tokenizer.decode(input_ids[i], skip_special_tokens=True)
+
+                labels = batch["labels"][i]
+                labels = [t.item() for t in labels if t.item() != -100]
+                target_text = tokenizer.decode(labels, skip_special_tokens=True)
+                pred_text = tokenizer.decode(outputs[i], skip_special_tokens=True)
+
+                preds.append({
+                    "input_text": input_text,
+                    "target_text": safe_json_parse(target_text),
+                    "predicted_text": safe_json_parse(pred_text)
+                })
+
+    return preds
 
 
 def main():
@@ -140,24 +178,19 @@ def main():
     train_dataloader = DataLoader(train_dataset, batch_size=4, shuffle=True)
     val_dataloader = DataLoader(val_dataset, batch_size=4)
     test_dataloader = DataLoader(test_dataset, batch_size=4)
-    device = torch.device("cude" if torch.cuda.is_available() else "cpu")
+
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = model.to(device)
     optimizer = AdamW(model.parameters(), lr=5e-5)
 
-    train(model, train_dataloader, val_dataloader, optimizer, device, epochs=5)
+    train(model, train_dataloader, val_dataloader, optimizer, device, epochs=15)
 
-    test_text = """City Clinic
-    Patient Name: Charlie Adams
-    Patient ID: C-778899
-    DOB: 03/14/1990
-    BP: 122/78 mmHg
-    HR: 76 bpm
-    SpO2: 97%
-    Temp: 36.8 C
-    """
+    preds = predict(model, test_dataloader, tokenizer, device)
 
-    print("\nPrediction on test report:")
-    print(predict(test_text, model, tokenizer, device))
+    with open("results.json", "w", encoding="utf-8") as f:
+        json.dump(preds, f, indent=2, ensure_ascii=False)
+
+    print(f"✅ Saved {len(preds)} predictions to results.json")
 
 
 if __name__ == "__main__":

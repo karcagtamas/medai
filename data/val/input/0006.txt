@@ -1,0 +1,5 @@
+Patient Name: Emily Stone
+Patient ID: V-104
+DOB: 1978-12-25
+O₂ Sat: 98%
+Temp: 37.0 C

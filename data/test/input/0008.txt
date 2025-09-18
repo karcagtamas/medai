@@ -1,0 +1,5 @@
+Patient Name: Isabel King
+Patient ID: T-208
+DOB: 1988-10-07
+Pulse: 74 bpm
+Temp: 37.4 C

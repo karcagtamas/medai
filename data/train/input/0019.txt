@@ -1,0 +1,6 @@
+Patient Name: Grace White
+Patient ID: T-206
+DOB: 1973-08-30
+Pulse: 82 bpm
+O₂ Sat: 92%
+Temp: 36.7 C

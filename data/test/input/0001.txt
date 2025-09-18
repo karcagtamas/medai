@@ -1,0 +1,5 @@
+Patient Name: Brian Lee
+Patient ID: T-201
+DOB: 1975-05-22
+O₂ Sat: 94%
+Doctor: Dr. Brown

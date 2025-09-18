@@ -1,0 +1,10 @@
+{
+    "name": "Brian Lee",
+    "patient_id": "T-201",
+    "date_of_birth": "1975-05-22",
+    "blood_pressure_systolic": "125",
+    "blood_pressure_diastolic": "82",
+    "heart_rate": "80",
+    "spo2": "94",
+    "temperature": "98.6"
+}

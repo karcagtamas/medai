@@ -1,0 +1,7 @@
+Patient Name: Frank Moore
+Patient ID: T-205
+DOB: 1982-05-11
+Pulse: 78 bpm
+O₂ Sat: 93%
+Temp: 100.2 F
+Doctor: Dr. Smith

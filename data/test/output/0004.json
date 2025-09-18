@@ -1,0 +1,9 @@
+{
+    "name": "Emily Stone",
+    "patient_id": "T-204",
+    "date_of_birth": "1978-12-25",
+    "blood_pressure_diastolic": "75",
+    "heart_rate": "70",
+    "spo2": "98",
+    "temperature": "37.0"
+}

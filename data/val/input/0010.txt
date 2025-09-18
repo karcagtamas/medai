@@ -1,0 +1,5 @@
+Patient Name: Isabel King
+Patient ID: V-108
+DOB: 1988-10-07
+O₂ Sat: 97%
+Temp: 37.4 C

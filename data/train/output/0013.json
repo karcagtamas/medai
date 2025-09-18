@@ -1,0 +1,8 @@
+{
+    "name": "Anna Green",
+    "patient_id": "T-200",
+    "date_of_birth": "1980-01-01",
+    "blood_pressure_systolic": "118",
+    "blood_pressure_diastolic": "76",
+    "temperature": "37.2"
+}

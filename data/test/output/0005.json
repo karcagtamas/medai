@@ -1,0 +1,9 @@
+{
+    "name": "Frank Moore",
+    "patient_id": "T-205",
+    "date_of_birth": "1982-05-11",
+    "blood_pressure_systolic": "128",
+    "blood_pressure_diastolic": "80",
+    "spo2": "93",
+    "temperature": "100.2"
+}

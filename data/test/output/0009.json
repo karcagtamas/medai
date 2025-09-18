@@ -1,0 +1,10 @@
+{
+    "name": "Jack Wright",
+    "patient_id": "T-209",
+    "date_of_birth": "1981-06-21",
+    "blood_pressure_systolic": "124",
+    "blood_pressure_diastolic": "81",
+    "heart_rate": "79",
+    "spo2": "95",
+    "temperature": "98.2"
+}
