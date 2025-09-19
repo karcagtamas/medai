@@ -1,0 +1,1 @@
+Patient Name: Alice Smith ID: P-001 DOB: 1987-11-03 Blood Pressure: 118/76 Pulse: 72 bpm Oxygen: 98% Temp: 37.0C

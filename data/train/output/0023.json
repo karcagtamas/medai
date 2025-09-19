@@ -1,0 +1,10 @@
+{
+    "name": "Mary Johnson",
+    "patient_id": "P-003",
+    "date_of_birth": "1975-02-21",
+    "blood_pressure_systolic": "120",
+    "blood_pressure_diastolic": "80",
+    "heart_rate": "70",
+    "spo2": "97",
+    "temperature": ""
+}

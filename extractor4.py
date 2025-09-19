@@ -19,10 +19,15 @@ KEYS = [
     "blood_pressure_diastolic",
     "heart_rate",
     "spo2",
-    "temperature"
+    "temperature",
+    "allergies"
 ]
-INSTRUCTION_PREFIX = "Extract the following keys as a JSON object with these exact keys (use empty string if missing): " + ", ".join(
-    KEYS) + ".\n\nReport:\n"
+INSTRUCTION_PREFIX = (
+    "Extract the following keys as a JSON object with these exact keys: "
+    + ", ".join(KEYS)
+    + ". Always return strictly valid JSON with double quotes, starting with { and ending with }."
+    + " If a field is missing, use an empty string.\n\nReport: "
+)
 
 
 def canonicalize_target(g: Dict[str, Any], keys: List[str]) -> Dict[str, str]:
@@ -59,6 +64,24 @@ def safe_json_parse(text: str) -> Dict[str, Any]:
         pass
 
     return {"_raw", text}
+
+
+def repair_json_string(pred: str) -> str:
+    # Ensure braces
+    if not pred.strip().startswith("{"):
+        pred = "{" + pred
+    if not pred.strip().endswith("}"):
+        pred = pred + "}"
+
+    # Replace semicolons with commas/colons
+    pred = pred.replace(";", ":")
+    pred = pred.replace("(", "")
+    pred = pred.replace(")", "")
+
+    # Remove duplicate commas
+    pred = pred.replace(", ,", ",")
+
+    return pred
 
 
 def fill_missing_keys(pred: Dict[str, Any], keys: List[str]) -> Dict[str, Any]:
@@ -239,6 +262,7 @@ def predict_and_save(model, test_loader, tokenizer, device, save_path="results.j
                 labels = [t.item() for t in labels if t.item() != -100]
                 tar_dec = tokenizer.decode(labels, skip_special_tokens=True)
                 pred_dec = tokenizer.decode(gen[i], skip_special_tokens=True)
+                pred_dec = repair_json_string(pred_dec)
 
                 tar_parsed = safe_json_parse(tar_dec)
                 pred_parsed = safe_json_parse(pred_dec)
@@ -284,7 +308,7 @@ def main():
     model = model.to(device)
     optimizer = AdamW(model.parameters(), lr=5e-5)
 
-    train(model, train_loader, val_loader, optimizer, tokenizer, device, epochs=40)
+    train(model, train_loader, val_loader, optimizer, tokenizer, device, epochs=50)
 
     out_folder = "out"
 

@@ -1,6 +1,6 @@
 [
   {
-    "input_text": "Extract the following keys as a JSON object with these exact keys (use empty string if missing): name, patient_id, date_of_birth, blood_pressure_systolic, blood_pressure_diastolic, heart_rate, spo2, temperature. Report: Patient Name: Brian Lee Patient ID: T-201 DOB: 1975-05-22 O2 Sat: 94% Doctor: Dr. Brown Return JSON:",
+    "input_text": "Extract the following keys as a JSON object with these exact keys: name, patient_id, date_of_birth, blood_pressure_systolic, blood_pressure_diastolic, heart_rate, spo2, temperature, allergies. Always return strictly valid JSON with double quotes, starting with  and ending with. If a field is missing, use an empty string. Report: Patient Name: Brian Lee Patient ID: T-201 DOB: 1975-05-22 O2 Sat: 94% Doctor: Dr. Brown Return JSON:",
     "target": {
       "name": "Brian Lee",
       "patient_id": "T-201",
@@ -9,7 +9,8 @@
       "blood_pressure_diastolic": "82",
       "heart_rate": "",
       "spo2": "94",
-      "temperature": ""
+      "temperature": "",
+      "allergies": ""
     },
     "prediction": {
       "name": "",
@@ -19,11 +20,12 @@
       "blood_pressure_diastolic": "",
       "heart_rate": "",
       "spo2": "",
-      "temperature": ""
+      "temperature": "",
+      "allergies": ""
     }
   },
   {
-    "input_text": "Extract the following keys as a JSON object with these exact keys (use empty string if missing): name, patient_id, date_of_birth, blood_pressure_systolic, blood_pressure_diastolic, heart_rate, spo2, temperature. Report: Patient Name: Catherine Hall Patient ID: T-202 DOB: 1990-03-14 Pulse: 76 bpm Temp: 36.8 C Return JSON:",
+    "input_text": "Extract the following keys as a JSON object with these exact keys: name, patient_id, date_of_birth, blood_pressure_systolic, blood_pressure_diastolic, heart_rate, spo2, temperature, allergies. Always return strictly valid JSON with double quotes, starting with  and ending with. If a field is missing, use an empty string. Report: Patient Name: Catherine Hall Patient ID: T-202 DOB: 1990-03-14 Pulse: 76 bpm Temp: 36.8 C Return JSON:",
     "target": {
       "name": "Catherine Hall",
       "patient_id": "T-202",
@@ -32,7 +34,8 @@
       "blood_pressure_diastolic": "",
       "heart_rate": "76",
       "spo2": "",
-      "temperature": "36.8"
+      "temperature": "36.8",
+      "allergies": ""
     },
     "prediction": {
       "name": "",
@@ -42,11 +45,12 @@
       "blood_pressure_diastolic": "",
       "heart_rate": "",
       "spo2": "",
-      "temperature": ""
+      "temperature": "",
+      "allergies": ""
     }
   },
   {
-    "input_text": "Extract the following keys as a JSON object with these exact keys (use empty string if missing): name, patient_id, date_of_birth, blood_pressure_systolic, blood_pressure_diastolic, heart_rate, spo2, temperature. Report: Patient Name: Daniel Young Patient ID: T-203 DOB: 1985-09-09 BP: 130/85 mmHg O2 Sat: 95% Temp: 99.1 F Return JSON:",
+    "input_text": "Extract the following keys as a JSON object with these exact keys: name, patient_id, date_of_birth, blood_pressure_systolic, blood_pressure_diastolic, heart_rate, spo2, temperature, allergies. Always return strictly valid JSON with double quotes, starting with  and ending with. If a field is missing, use an empty string. Report: Patient Name: Daniel Young Patient ID: T-203 DOB: 1985-09-09 BP: 130/85 mmHg O2 Sat: 95% Temp: 99.1 F Return JSON:",
     "target": {
       "name": "",
       "patient_id": "T-203",
@@ -55,7 +59,8 @@
       "blood_pressure_diastolic": "85",
       "heart_rate": "",
       "spo2": "95",
-      "temperature": "99.1"
+      "temperature": "99.1",
+      "allergies": ""
     },
     "prediction": {
       "name": "",
@@ -65,11 +70,12 @@
       "blood_pressure_diastolic": "",
       "heart_rate": "",
       "spo2": "",
-      "temperature": ""
+      "temperature": "",
+      "allergies": ""
     }
   },
   {
-    "input_text": "Extract the following keys as a JSON object with these exact keys (use empty string if missing): name, patient_id, date_of_birth, blood_pressure_systolic, blood_pressure_diastolic, heart_rate, spo2, temperature. Report: Patient Name: Emily Stone Patient ID: T-204 DOB: 1978-12-25 Pulse: 70 bpm O2 Sat: 98% Temp: 37.0 C Return JSON:",
+    "input_text": "Extract the following keys as a JSON object with these exact keys: name, patient_id, date_of_birth, blood_pressure_systolic, blood_pressure_diastolic, heart_rate, spo2, temperature, allergies. Always return strictly valid JSON with double quotes, starting with  and ending with. If a field is missing, use an empty string. Report: Patient Name: Emily Stone Patient ID: T-204 DOB: 1978-12-25 Pulse: 70 bpm O2 Sat: 98% Temp: 37.0 C Return JSON:",
     "target": {
       "name": "Emily Stone",
       "patient_id": "T-204",
@@ -78,7 +84,8 @@
       "blood_pressure_diastolic": "75",
       "heart_rate": "70",
       "spo2": "98",
-      "temperature": "37.0"
+      "temperature": "37.0",
+      "allergies": ""
     },
     "prediction": {
       "name": "",
@@ -88,11 +95,12 @@
       "blood_pressure_diastolic": "",
       "heart_rate": "",
       "spo2": "",
-      "temperature": ""
+      "temperature": "",
+      "allergies": ""
     }
   },
   {
-    "input_text": "Extract the following keys as a JSON object with these exact keys (use empty string if missing): name, patient_id, date_of_birth, blood_pressure_systolic, blood_pressure_diastolic, heart_rate, spo2, temperature. Report: Patient Name: Frank Moore Patient ID: T-205 DOB: 1982-05-11 BP: 128/80 mmHg O2 Sat: 93% Temp: 100.2 F Doctor: Dr. Patel Return JSON:",
+    "input_text": "Extract the following keys as a JSON object with these exact keys: name, patient_id, date_of_birth, blood_pressure_systolic, blood_pressure_diastolic, heart_rate, spo2, temperature, allergies. Always return strictly valid JSON with double quotes, starting with  and ending with. If a field is missing, use an empty string. Report: Patient Name: Frank Moore Patient ID: T-205 DOB: 1982-05-11 BP: 128/80 mmHg O2 Sat: 93% Temp: 100.2 F Doctor: Dr. Patel Return JSON:",
     "target": {
       "name": "Frank Moore",
       "patient_id": "T-205",
@@ -101,7 +109,8 @@
       "blood_pressure_diastolic": "80",
       "heart_rate": "",
       "spo2": "93",
-      "temperature": "100.2"
+      "temperature": "100.2",
+      "allergies": ""
     },
     "prediction": {
       "name": "",
@@ -111,11 +120,12 @@
       "blood_pressure_diastolic": "",
       "heart_rate": "",
       "spo2": "",
-      "temperature": ""
+      "temperature": "",
+      "allergies": ""
     }
   },
   {
-    "input_text": "Extract the following keys as a JSON object with these exact keys (use empty string if missing): name, patient_id, date_of_birth, blood_pressure_systolic, blood_pressure_diastolic, heart_rate, spo2, temperature. Report: Patient Name: Grace White Patient ID: T-206 DOB: 1973-08-30 Pulse: 82 bpm O2 Sat: 92% Temp: 36.7 C Doctor: Dr. Brown Return JSON:",
+    "input_text": "Extract the following keys as a JSON object with these exact keys: name, patient_id, date_of_birth, blood_pressure_systolic, blood_pressure_diastolic, heart_rate, spo2, temperature, allergies. Always return strictly valid JSON with double quotes, starting with  and ending with. If a field is missing, use an empty string. Report: Patient Name: Grace White Patient ID: T-206 DOB: 1973-08-30 Pulse: 82 bpm O2 Sat: 92% Temp: 36.7 C Doctor: Dr. Brown Return JSON:",
     "target": {
       "name": "Grace White",
       "patient_id": "T-206",
@@ -124,7 +134,8 @@
       "blood_pressure_diastolic": "",
       "heart_rate": "82",
       "spo2": "92",
-      "temperature": "36.7"
+      "temperature": "36.7",
+      "allergies": ""
     },
     "prediction": {
       "name": "",
@@ -134,11 +145,12 @@
       "blood_pressure_diastolic": "",
       "heart_rate": "",
       "spo2": "",
-      "temperature": ""
+      "temperature": "",
+      "allergies": ""
     }
   },
   {
-    "input_text": "Extract the following keys as a JSON object with these exact keys (use empty string if missing): name, patient_id, date_of_birth, blood_pressure_systolic, blood_pressure_diastolic, heart_rate, spo2, temperature. Report: Patient Name: Henry Black Patient ID: T-207 DOB: 1992-04-19 BP: 110/70 mmHg Pulse: 68 bpm O2 Sat: 99% Temp: 97.9 F Doctor: Dr. Smith Return JSON:",
+    "input_text": "Extract the following keys as a JSON object with these exact keys: name, patient_id, date_of_birth, blood_pressure_systolic, blood_pressure_diastolic, heart_rate, spo2, temperature, allergies. Always return strictly valid JSON with double quotes, starting with  and ending with. If a field is missing, use an empty string. Report: Patient Name: Henry Black Patient ID: T-207 DOB: 1992-04-19 BP: 110/70 mmHg Pulse: 68 bpm O2 Sat: 99% Temp: 97.9 F Doctor: Dr. Smith Return JSON:",
     "target": {
       "name": "Henry Black",
       "patient_id": "T-207",
@@ -147,7 +159,8 @@
       "blood_pressure_diastolic": "70",
       "heart_rate": "68",
       "spo2": "99",
-      "temperature": "97.9"
+      "temperature": "97.9",
+      "allergies": ""
     },
     "prediction": {
       "name": "",
@@ -157,11 +170,12 @@
       "blood_pressure_diastolic": "",
       "heart_rate": "",
       "spo2": "",
-      "temperature": ""
+      "temperature": "",
+      "allergies": ""
     }
   },
   {
-    "input_text": "Extract the following keys as a JSON object with these exact keys (use empty string if missing): name, patient_id, date_of_birth, blood_pressure_systolic, blood_pressure_diastolic, heart_rate, spo2, temperature. Report: Patient Name: Isabel King Patient ID: T-208 DOB: 1988-10-07 Pulse: 74 bpm Temp: 37.4 C Return JSON:",
+    "input_text": "Extract the following keys as a JSON object with these exact keys: name, patient_id, date_of_birth, blood_pressure_systolic, blood_pressure_diastolic, heart_rate, spo2, temperature, allergies. Always return strictly valid JSON with double quotes, starting with  and ending with. If a field is missing, use an empty string. Report: Patient Name: Isabel King Patient ID: T-208 DOB: 1988-10-07 Pulse: 74 bpm Temp: 37.4 C Return JSON:",
     "target": {
       "name": "Isabel King",
       "patient_id": "T-208",
@@ -170,7 +184,8 @@
       "blood_pressure_diastolic": "",
       "heart_rate": "74",
       "spo2": "",
-      "temperature": "37.4"
+      "temperature": "37.4",
+      "allergies": ""
     },
     "prediction": {
       "name": "",
@@ -180,11 +195,12 @@
       "blood_pressure_diastolic": "",
       "heart_rate": "",
       "spo2": "",
-      "temperature": ""
+      "temperature": "",
+      "allergies": ""
     }
   },
   {
-    "input_text": "Extract the following keys as a JSON object with these exact keys (use empty string if missing): name, patient_id, date_of_birth, blood_pressure_systolic, blood_pressure_diastolic, heart_rate, spo2, temperature. Report: Patient Name: Jack Wright Patient ID: T-209 DOB: 1981-06-21 BP: 124/81 mmHg Pulse: 79 bpm O2 Sat: 95% Temp: 98.2 F Return JSON:",
+    "input_text": "Extract the following keys as a JSON object with these exact keys: name, patient_id, date_of_birth, blood_pressure_systolic, blood_pressure_diastolic, heart_rate, spo2, temperature, allergies. Always return strictly valid JSON with double quotes, starting with  and ending with. If a field is missing, use an empty string. Report: Patient Name: Jack Wright Patient ID: T-209 DOB: 1981-06-21 BP: 124/81 mmHg Pulse: 79 bpm O2 Sat: 95% Temp: 98.2 F Return JSON:",
     "target": {
       "name": "Jack Wright",
       "patient_id": "T-209",
@@ -193,7 +209,8 @@
       "blood_pressure_diastolic": "81",
       "heart_rate": "79",
       "spo2": "95",
-      "temperature": "98.2"
+      "temperature": "98.2",
+      "allergies": ""
     },
     "prediction": {
       "name": "",
@@ -203,11 +220,12 @@
       "blood_pressure_diastolic": "",
       "heart_rate": "",
       "spo2": "",
-      "temperature": ""
+      "temperature": "",
+      "allergies": ""
     }
   },
   {
-    "input_text": "Extract the following keys as a JSON object with these exact keys (use empty string if missing): name, patient_id, date_of_birth, blood_pressure_systolic, blood_pressure_diastolic, heart_rate, spo2, temperature. Report: Patient Name: Jack Wright Patient ID: V-109 DOB: 1981-06-21 BP: 124/81 mmHg Pulse: 79 bpm O2 Sat: 95% Temp: 98.2 F Doctor: Dr. Brown Return JSON:",
+    "input_text": "Extract the following keys as a JSON object with these exact keys: name, patient_id, date_of_birth, blood_pressure_systolic, blood_pressure_diastolic, heart_rate, spo2, temperature, allergies. Always return strictly valid JSON with double quotes, starting with  and ending with. If a field is missing, use an empty string. Report: Patient Name: Jack Wright Patient ID: V-109 DOB: 1981-06-21 BP: 124/81 mmHg Pulse: 79 bpm O2 Sat: 95% Temp: 98.2 F Doctor: Dr. Brown Return JSON:",
     "target": {
       "name": "Jack Wright",
       "patient_id": "V-109",
@@ -216,7 +234,8 @@
       "blood_pressure_diastolic": "81",
       "heart_rate": "79",
       "spo2": "95",
-      "temperature": "98.2"
+      "temperature": "98.2",
+      "allergies": ""
     },
     "prediction": {
       "name": "",
@@ -226,7 +245,8 @@
       "blood_pressure_diastolic": "",
       "heart_rate": "",
       "spo2": "",
-      "temperature": ""
+      "temperature": "",
+      "allergies": ""
     }
   }
 ]

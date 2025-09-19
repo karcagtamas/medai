@@ -1,0 +1,1 @@
+Patient: Mary Johnson Code: P-003 DOB: 1975-02-21 Findings: BP=120/80 Pulse 70 Oxygen Sat 97%

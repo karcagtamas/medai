@@ -1,0 +1,10 @@
+{
+    "name": "John Doe",
+    "patient_id": "P-002",
+    "date_of_birth": "1991-05-14",
+    "blood_pressure_systolic": "135",
+    "blood_pressure_diastolic": "89",
+    "heart_rate": "80",
+    "spo2": "96",
+    "temperature": "98.6"
+}
