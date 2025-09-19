@@ -8,6 +8,7 @@ from torch.utils.data import Dataset, DataLoader
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from torch.optim import AdamW
 from tqdm import tqdm
+from datetime import datetime
 
 MODEL_NAME = "t5-small"
 KEYS = [
@@ -283,9 +284,19 @@ def main():
     model = model.to(device)
     optimizer = AdamW(model.parameters(), lr=5e-5)
 
-    train(model, train_loader, val_loader, optimizer, tokenizer, device, epochs=5)
+    train(model, train_loader, val_loader, optimizer, tokenizer, device, epochs=40)
 
-    predict_and_save(model, test_loader, tokenizer, device, save_path="results.json")
+    out_folder = "out"
+
+    os.makedirs(out_folder, exist_ok=True)
+
+    predict_and_save(model, test_loader, tokenizer, device, save_path=os.path.join(out_folder, "results.json"))
+
+    save_folder = os.path.join(out_folder, "model", datetime.now().strftime('%Y%m%d%H%M%S'))
+    os.makedirs(save_folder, exist_ok=True)
+    model.save_pretrained(save_folder)
+    tokenizer.save_pretrained(save_folder)
+    print(f"✅ Model and tokenizer save to {save_folder}")
 
 
 if __name__ == "__main__":
