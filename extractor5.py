@@ -29,10 +29,10 @@ def extract_text_and_boxes(pdf_path):
                 page_words.append({
                     "text": word["text"],
                     "bbox": [
-                        word["x0"] / page.width,
-                        word["top"] / page.height,
-                        word["x1"] / page.width,
-                        word["bottom"] / page.height
+                        word["x0"],  # / page.width,
+                        word["top"],  # / page.height,
+                        word["x1"],  # / page.width,
+                        word["bottom"],  # / page.height
                     ],
                 })
 
@@ -50,11 +50,35 @@ def prepare_inputs(page_data):
     encoding = processor(text=texts, boxes=boxes, images=[page_data["image"]], return_tensors="pt",
                          padding="max_length", truncation=True)
 
-    #for key in ["bbox"]:
-    #    if key in encoding:
-    #        encoding[key] = encoding[key].long()
+    for key in ["bbox"]:
+        if key in encoding:
+            encoding[key] = encoding[key].long()
 
     return encoding, texts
+
+
+def extract_kv(words, labels):
+    kv_pairs = {}
+    current_key, current_value = None, None
+    state = None
+
+    for word, label in zip(words, labels):
+        if label.startswith("B-QUESTION"):
+            # Save previous pair if complete
+            if current_key and current_value:
+                kv_pairs[current_key] = current_value
+                current_value = None
+            current_key = word
+            state = "QUESTION"
+        elif label.startswith("I-QUESTION") and state == "QUESTION":
+            current_key += " " + word
+        elif label.startswith("B-ANSWER"):
+            current_value = word
+            state = "ANSWER"
+        elif label.startswith("I-ANSWER") and state == "ANSWER":
+            current_value += " " + word
+        else:
+            state = None
 
 
 def predict_kv(page_data):
@@ -66,20 +90,11 @@ def predict_kv(page_data):
     predictions = outputs.logits.argmax(-1).squeeze().tolist()
 
     labels = [model.config.id2label[p] for p in predictions][:len(texts)]
-    kv_pairs = {}
-    current_key = None
-    for word, label in zip(texts, labels):
-        if "KEY" in label:
-            current_key = word
-        elif "VALUE" in label and current_key:
-            kv_pairs[current_key] = word
-            current_key = None
-    return kv_pairs
+    return extract_kv(texts, labels)
 
 
 pdf_path = "sample_report.pdf"
 pages_data = extract_text_and_boxes(pdf_path)
-print(pages_data)
 all_kv_pairs = []
 for page_data in pages_data:
     kv = predict_kv(page_data)
