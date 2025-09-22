@@ -4,3 +4,6 @@ pdfplumber
 python-docx
 tqdm
 pandas
+datasets
+pdf2image
+pytesseract
