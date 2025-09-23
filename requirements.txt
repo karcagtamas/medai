@@ -7,3 +7,5 @@ pandas
 datasets
 pdf2image
 pytesseract
+evaluate
+seqeval

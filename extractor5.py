@@ -2,7 +2,6 @@ import pdfplumber
 from pdf2image import convert_from_path
 from transformers import LayoutLMv3ForTokenClassification, LayoutLMv3Processor
 import torch
-from PIL import Image
 
 model_name = "nielsr/layoutlmv3-finetuned-funsd"
 processor = LayoutLMv3Processor.from_pretrained(model_name, apply_ocr=False)
