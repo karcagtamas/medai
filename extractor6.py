@@ -27,6 +27,88 @@ LABEL_LIST = [
 label2id = {l: i for i, l in enumerate(LABEL_LIST)}
 id2label = {i: l for l, i in label2id.items()}
 
+# EXAMPLES
+toy_examples = {
+    "id": ["doc1"],
+    "tokens": [
+        # example tokens for one page
+        ["Hospital", "ABC", "Medical", "Center", "Patient", "Name:", "John", "Doe",
+         "Patient", "ID:", "P-998877", "DOB:", "05/12/1975", "Report", "Date:", "08/09/2025",
+         "Vitals:", "Blood", "Pressure:", "120/80", "mmHg",
+         "Heart", "Rate:", "70", "bpm", "SpO2:", "97%",
+         "Temperature:", "98.6", "F", "Respiratory", "Rate:", "18", "/min", "Glucose:", "6.0", "mmol/L"]
+    ],
+    # toy bboxes: here we just create plausible boxes (x0,y0,x1,y1) in pixel coords
+    # In real life: use pdfplumber or OCR to get actual bounding boxes per token.
+    "bboxes": [
+        [[10 + i * 40, 10 + (i // 10) * 20, 10 + i * 40 + 30, 10 + (i // 10) * 20 + 16] for i in range(37)]
+    ],
+    "labels": [
+        # Corresponding labels (strings) matching tokens above
+        ["O", "B-QUESTION", "B-QUESTION", "O", "O", "B-QUESTION", "B-QUESTION", "I-QUESTION",
+         "B-ANSWER", "B-ANSWER", "B-ANSWER", "B-QUESTION", "I-QUESTION", "B-ANSWER", "I-ANSWER", "I-ANSWER",
+         "B-HEADER", "I-HEADER", "I-HEADER", "B-QUESTION", "I-QUESTION",
+         "B-ANSWER", "I-ANSWER", "I-ANSWER", "I-ANSWER", "I-ANSWER", "I-ANSWER",
+         "B-QUESTION", "B-QUESTION", "I-QUESTION", "B-ANSWER", "I-ANSWER", "I-ANSWER", "I-ANSWER", "I-ANSWER",
+         "I-ANSWER"]
+    ],
+    # One simple placeholder image path. Replace it with real images.
+    # For testing, we create a blank image and save to disk (so processor has something).
+    "image_path": ["./toy_doc1_page0.png"],
+}
+
+
+def preprocess_examples(examples: Dict[str, Any]) -> Dict[str, Any]:
+    pixel_values_list = []
+    input_ids_list = []
+    attention_mask_list = []
+    bbox_list = []
+    labels_list = []
+
+    processor = LayoutLMv3Processor.from_pretrained(MODEL_NAME, apply_ocr=False)
+
+    for i in range(len(examples["tokens"])):
+        image_path = examples["image_path"][i]
+
+        image = Image.open(image_path).convert("RGB")
+
+        tokens = examples["tokens"][i]
+        bboxes = examples["bboxes"][i]
+        word_labels = examples["label_ids"][i]
+
+        encoding = processor(
+            images=image,
+            text=tokens,
+            boxes=bboxes,
+            word_labels=word_labels,
+            padding="max_length",
+            trunaction=True,
+            return_tensors="pt"
+        )
+
+        encoding = {k: v.squeeze(0) for k, v in encoding.items()}
+
+        for key in ["input_ids", "attention_mask", "token_type_ids"]:
+            if key in encoding:
+                encoding[key] = encoding[key].long()
+
+        pixel_values_list.append(encoding["pixel_values"])
+        input_ids_list.append(encoding["input_ids"])
+        attention_mask_list.append(encoding["attention_mask"])
+        bbox_list.append(encoding["bbox"])
+        labels_list.append(encoding["labels"])
+
+    out = {
+        "pixel_values": pixel_values_list,
+        "input_ids": input_ids_list,
+        "attention_mask": attention_mask_list,
+        "bbox": bbox_list,
+        "labels": labels_list,
+        "image_path": examples["image_path"]
+    }
+
+    return out
+
 
 def compute_metrics(p):
     preds = np.argmax(p.predictions, axis=-1)
@@ -63,12 +145,11 @@ def convert_to_torch(example: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def main():
-    toy
     dataset = Dataset.from_dict({
         "id": toy_examples["id"],
         "tokens": toy_examples["tokens"],
         "bboxes": toy_examples["bboxes"],
-        "label_ids": toy_examples["label_ids"],
+        "label_ids": list(map(lambda x: list(map(lambda y: label2id[y], x)), toy_examples["labels"])),
         "image_path": toy_examples["image_path"],
     })
 
